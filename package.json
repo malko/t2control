@@ -1,0 +1,114 @@
+{
+  "name": "t2control",
+  "version": "0.0.1",
+  "description": "OBSBOT Tiny 2/SE Control",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder",
+    "build:linux": "electron-builder --linux",
+    "build:win": "electron-builder --win",
+    "build:mac": "electron-builder --mac",
+    "dist": "electron-builder --publish=never",
+    "pack": "electron-builder --dir",
+    "release:patch": "npm version patch && npm run release:commit",
+    "release:minor": "npm version minor && npm run release:commit",
+    "release:major": "npm version major && npm run release:commit",
+    "release:commit": "git commit -am \"🔖 release v$(node -p \"require('./package.json').version\")\" && git tag v$(node -p \"require('./package.json').version\")",
+    "postversion": "echo \"Version bumped to $(node -p \"require('./package.json').version\")\""
+  },
+  "build": {
+		"appId": "com.obsbot.t2control",
+    "productName": "OBSBOT T2 Control",
+    "directories": {
+			"output": "dist"
+    },
+    "files": [
+			"main.js",
+      "preload.js",
+      "renderer.js",
+      "index.html",
+      "style.css",
+      "package.json",
+      "node_modules/**/*"
+    ],
+    "linux": {
+			"target": [
+				{
+					"target": "AppImage",
+          "arch": [
+						"x64"
+          ]
+        },
+        {
+					"target": "deb",
+          "arch": [
+						"x64"
+          ]
+        }
+      ],
+      "category": "AudioVideo",
+      "desktop": {
+				"Name": "OBSBOT T2 Control",
+        "Comment": "Control OBSBOT cameras AI tracking modes",
+        "Categories": "AudioVideo;Video;Photography;"
+      }
+    },
+    "win": {
+			"target": [
+				{
+					"target": "nsis",
+          "arch": [
+						"x64"
+          ]
+        },
+        {
+					"target": "portable",
+          "arch": [
+						"x64"
+          ]
+        }
+      ]
+    },
+    "mac": {
+			"target": [
+				{
+					"target": "dmg",
+          "arch": [
+						"x64",
+            "arm64"
+          ]
+        }
+      ],
+      "category": "public.app-category.video"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true
+    }
+  },
+  "keywords": [
+		"obsbot",
+    "camera",
+    "control",
+    "usb",
+    "ai",
+    "tracking"
+  ],
+	"homepage": "git@github.com:malko/t2control.git",
+  "author": {
+		"name": "Jonathan Gotti",
+		"email": "jgotti@jgotti.org"
+	},
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^38.1.0",
+    "electron-builder": "^24.6.3"
+  },
+  "dependencies": {
+    "usb": "^2.9.0"
+  },
+  "private": true
+}

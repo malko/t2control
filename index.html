@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>OBSBOT Tiny 2 Control</title>
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>OBSBOT Tiny 2 Control</h1>
+
+    <div class="main-container">
+        <div id="video-container">
+            <video id="video" autoplay="true"></video>
+            <canvas id="last-frame-canvas" class="last-frame-canvas hidden"></canvas>
+            <div id="video-overlay" class="video-overlay hidden">
+                <div class="overlay-content">
+                    <div class="spinner"></div>
+                    <p>Applying settings...</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="controls-container">
+            <div class="control-group">
+                <h2>Video</h2>
+                <div id="video-controls">
+                    <select id="video-source"></select>
+                    <button id="refresh-cameras">🔄</button>
+                    <button id="start-video">Display Video</button>
+                    <button id="stop-video">Stop Video</button>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <h2>AI Control</h2>
+                <div id="controls">
+                    <button id="stop">Stop AI</button>
+                    <button id="normal">Normal</button>
+                    <button id="upperbody">Upper Body</button>
+                    <button id="closeup">Close Up</button>
+                    <button id="headless">Headless</button>
+                    <button id="lowerbody">Lower Body</button>
+                    <button id="desk">Desk</button>
+                    <button id="whiteboard">Whiteboard</button>
+                    <button id="hand">Hand</button>
+                    <button id="group">Group</button>
+                </div>
+            </div>
+
+            <div class="control-group diagnostic-group">
+                <details>
+                    <summary>Device Diagnostics</summary>
+                    <div id="diagnostic-controls">
+                        <button id="scan-devices">Scan OBSBOT Devices</button>
+                    </div>
+                    <div id="scan-results" class="scan-results"></div>
+                </details>
+            </div>
+        </div>
+    </div>
+
+    <script src="renderer.js"></script>
+</body>
+</html>
