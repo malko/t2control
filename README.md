@@ -1,5 +1,7 @@
 # OBSBOT T2 Control
 
+> ⚠️ This project won't be maintained anymore as it is now replaced with another one using the sdk provided by obsbot and will offer more control for your camera. It is a complete rewrite from scracth so you should take a look at [OBSNIX](https://github.com/malko/obsnix-gui) instead ! 
+
 A desktop application for controlling OBSBOT cameras (Tiny SE, Tiny 2, etc.) AI tracking modes via USB. Built with Electron and Node.js.
 
 ![OBSBOT T2 Control Interface](screenshot.png)
